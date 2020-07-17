@@ -2,14 +2,18 @@ struct Task {
     description: String
 }
 
-fn main() {
-    let task1 = Task {
-        description: String::from("Task 1")
-    };
+impl Task {
+    fn new(description: &str) -> Task {
+        Task {
+            description: String::from(description)
+        }
+    }
+}
 
-    let task2 = Task {
-        description: String::from("Task 2")
-    };
+fn main() {
+    let task1 = Task::new("Task 1");
+
+    let task2 = Task::new("Task 2");
 
     let my_tasks = [
         task1,
