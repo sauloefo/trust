@@ -35,12 +35,20 @@ impl Tasks {
 }
 
 fn main() {
-    let my_tasks= Tasks::new(
+    let my_tasks = get_tasks();
+
+    show_tasks(&my_tasks);
+}
+
+fn get_tasks() -> Tasks {
+    Tasks::new(
         Task::new("Task 1"),
         Task::new("Task 2")
-    );
+    )
+}
 
-    for description in my_tasks.get_description() {
+fn show_tasks(tasks: &Tasks) -> () {
+    for description in tasks.get_description() {
         println!("{}", description);
     }
 }
