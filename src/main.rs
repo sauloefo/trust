@@ -14,15 +14,22 @@ struct Domain {
     elements: Vec<Task>
 }
 
-fn main() {
-    let my_tasks= Domain {
-        elements: vec![
-            Task::new("Task 1"),
-            Task::new("Task 2")
-        ]
-    };
+impl Domain {
+    // TODO: create a version to receive n elements
+    fn new (task1: Task, task2: Task) -> Domain {
+        Domain {
+            elements: vec![task1, task2]
+        }
+    }
+}
 
-    for task in my_tasks.elements.iter() {
+fn main() {
+    let my_tasks= Domain::new(
+        Task::new("Task 1"),
+        Task::new("Task 2")
+    );
+
+    for task in my_tasks.elements {
         println!("{}", task.description);
     }
 }
