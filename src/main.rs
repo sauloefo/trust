@@ -10,17 +10,19 @@ impl Task {
     }
 }
 
+struct Domain {
+    elements: Vec<Task>
+}
+
 fn main() {
-    let task1 = Task::new("Task 1");
+    let my_tasks= Domain {
+        elements: vec![
+            Task::new("Task 1"),
+            Task::new("Task 2")
+        ]
+    };
 
-    let task2 = Task::new("Task 2");
-
-    let my_tasks = [
-        task1,
-        task2
-    ];
-
-    for task in my_tasks.iter() {
+    for task in my_tasks.elements.iter() {
         println!("{}", task.description);
     }
 }
