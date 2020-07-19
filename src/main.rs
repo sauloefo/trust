@@ -21,6 +21,17 @@ impl Domain {
             elements: vec![task1, task2]
         }
     }
+
+    fn get_description(&self) -> Vec<&str> {
+        let mut descriptions: Vec<&str> = Vec::new();
+
+        for task in &self.elements {
+            descriptions.push(&task.description);
+        }
+
+        // TODO: remove duplications
+        descriptions
+    }
 }
 
 fn main() {
@@ -29,7 +40,7 @@ fn main() {
         Task::new("Task 2")
     );
 
-    for task in my_tasks.elements {
-        println!("{}", task.description);
+    for description in my_tasks.get_description() {
+        println!("{}", description);
     }
 }
