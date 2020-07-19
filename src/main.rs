@@ -1,11 +1,21 @@
 struct Task {
-    description: String
+    description: String,
+    done: bool
 }
 
 impl Task {
-    fn new(description: &str) -> Task {
+    fn not_done(description: &str) -> Task {
+        Task::new(description, false)
+    }
+
+    fn done(description: &str) -> Task {
+        Task::new(description, false)
+    }
+
+    fn new(description: &str, done: bool) -> Task {
         Task {
-            description: String::from(description)
+            description: String::from(description),
+            done: done
         }
     }
 }
@@ -42,13 +52,14 @@ fn main() {
 
 fn get_tasks() -> Tasks {
     Tasks::new(
-        Task::new("Task 1"),
-        Task::new("Task 2")
+        Task::not_done("Task 1"),
+        Task::done("Task 2")
     )
 }
 
 fn show_tasks(tasks: &Tasks) -> () {
-    for description in tasks.get_description() {
-        println!("{}", description);
+    for task in tasks.elements.iter() {
+        let done_description = if task.done { "done" } else { "not done" };
+        println!("[{}] {}", done_description, task.description);
     }
 }
