@@ -10,14 +10,14 @@ impl Task {
     }
 }
 
-struct Domain {
+struct Tasks {
     elements: Vec<Task>
 }
 
-impl Domain {
+impl Tasks {
     // TODO: create a version to receive n elements
-    fn new (task1: Task, task2: Task) -> Domain {
-        Domain {
+    fn new (task1: Task, task2: Task) -> Tasks {
+        Tasks {
             elements: vec![task1, task2]
         }
     }
@@ -35,7 +35,7 @@ impl Domain {
 }
 
 fn main() {
-    let my_tasks= Domain::new(
+    let my_tasks= Tasks::new(
         Task::new("Task 1"),
         Task::new("Task 2")
     );
