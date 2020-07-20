@@ -32,6 +32,12 @@ impl Tasks {
         }
     }
 
+    fn from_array(tasks: &[Task]) -> Tasks {
+        Tasks {
+            elements: tasks.to_vec()
+        }
+    }
+
     fn get_description(&self) -> Vec<&str> {
         let mut descriptions: Vec<&str> = Vec::new();
 
@@ -50,11 +56,26 @@ fn main() {
     show_tasks(&my_tasks);
 }
 
+// fn main() {
+//     let arr = &[1, 2, 3];
+
+//     let vector_from_array = arr.to_vec();
+
+//     for n in vector_from_array {
+//         println!("{}", n);
+//     }
+// }
+
 fn get_tasks() -> Tasks {
-    Tasks::new(
+    // Tasks::new(
+    //     Task::not_done("Task 1"),
+    //     Task::done("Task 2")
+    // )
+
+    Tasks::from_array(&[
         Task::not_done("Task 1"),
         Task::done("Task 2")
-    )
+    ])
 }
 
 fn show_tasks(tasks: &Tasks) -> () {
